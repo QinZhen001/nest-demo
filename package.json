@@ -25,7 +25,13 @@
     "@nestjs/platform-express": "^10.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
-    "joi":"^17.4.2"
+    "joi": "^17.4.2",
+    "class-validator": "^0.14.0",
+    "class-transformer": "^0.5.1",
+    "@nestjs/typeorm":"^10.0.0",
+    "typeorm":"^0.2.38",
+    "mysql2":"^3.6.2",
+    "@nestjs/config":"^3.1.1"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.62",
@@ -37,7 +43,7 @@
     "@types/jest": "^29.5.2",
     "@types/node": "^20.3.1",
     "@types/supertest": "^2.0.12",
-    "@types/joi":"^17.2.3",
+    "@types/joi": "^17.2.3",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.42.0",

@@ -10,24 +10,40 @@ import {
   ParseIntPipe,
   HttpStatus,
   UsePipes,
+  SetMetadata,
+  UseInterceptors,
+  Inject,
 } from '@nestjs/common';
+import { Roles } from '../common/decorator/roles.decorator';
 import { CreateCatDto, createCatSchema } from './dto/index';
 import { Request } from 'express';
+import { UseGuards } from '@nestjs/common';
 import { CatsService } from './cats.service';
 import { Cat } from './interfaces/index';
-import { JoiValidationPipe } from '../common/pipe/validation.pipe';
+import {
+  JoiValidationPipe,
+  ValidationClassPipe,
+} from '../common/pipe/validation.pipe';
+import { RolesGuard } from '../common/guard/roles.guard';
+import { LoggingInterceptor } from '../common/interceptor/logging.interceptor';
 
 @Controller('cats')
+@UseGuards(RolesGuard)
+@UseInterceptors(LoggingInterceptor)
 export class CatsController {
   constructor(private catsService: CatsService) {}
+  // constructor(@Inject('CONNECTION') connection: Connection) {}
 
   @Post()
-  @UsePipes(new JoiValidationPipe(createCatSchema))
-  async create(@Body() createCatDto: CreateCatDto) {
+  // @UsePipes(new JoiValidationPipe(createCatSchema))
+  // @SetMetadata('roles', ['admin'])
+  // @Roles('admin')
+  async create(@Body(new ValidationClassPipe()) createCatDto: CreateCatDto) {
     this.catsService.create(createCatDto);
   }
 
   @Get()
+  // @Roles('admin')
   async findAll(): Promise<Cat[]> {
     return this.catsService.findAll();
   }
