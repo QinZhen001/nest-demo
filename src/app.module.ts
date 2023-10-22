@@ -7,6 +7,8 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { ConfigModule } from '@nestjs/config';
 import { CustomTtlModule } from './custom-ttl/custom-ttl.module';
 import { QueuesModule } from './queues/queues.module';
+import { OrdersModule } from './orders/orders.module';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 // ----- controllers -----
 import { Cats2Controller } from './cats/cats2.controller';
 // ----- services -----
@@ -28,6 +30,7 @@ const mockDogsService = {};
       isGlobal: true,
       useClass: CacheConfig,
     }),
+    EventEmitterModule.forRoot(),
     ScheduleModule.forRoot(),
     ConfigModule.forRoot({
       isGlobal: true,
@@ -46,6 +49,7 @@ const mockDogsService = {};
     CatsModule,
     DogsModule,
     QueuesModule,
+    OrdersModule,
   ],
   // 直接使用 controller 的方式
   controllers: [Cats2Controller],
