@@ -6,6 +6,7 @@ import { CacheModule, CacheInterceptor } from '@nestjs/cache-manager';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ConfigModule } from '@nestjs/config';
 import { CustomTtlModule } from './custom-ttl/custom-ttl.module';
+import { QueuesModule } from './queues/queues.module';
 // ----- controllers -----
 import { Cats2Controller } from './cats/cats2.controller';
 // ----- services -----
@@ -44,6 +45,7 @@ const mockDogsService = {};
     CustomTtlModule,
     CatsModule,
     DogsModule,
+    QueuesModule,
   ],
   // 直接使用 controller 的方式
   controllers: [Cats2Controller],

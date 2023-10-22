@@ -18,6 +18,9 @@ async function bootstrap() {
     type: VersioningType.URI,
   });
 
+  // Nest 使用同一个 MyLogger 实例
+  // app.useLogger(app.get(MyLogger));
+
   await app.listen(3000);
 }
 bootstrap();

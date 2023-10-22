@@ -26,6 +26,35 @@
 
 
 
+## scope
+
+[注入作用域](https://docs.nestjs.cn/10/fundamentals?id=%e6%b3%a8%e5%85%a5%e4%bd%9c%e7%94%a8%e5%9f%9f)
+
+|             |                                                              |
+| :---------- | ------------------------------------------------------------ |
+| `DEFAULT`   | 每个提供者可以跨多个类共享。提供者生命周期严格绑定到应用程序生命周期。一旦应用程序启动，所有提供程序都已实例化。默认情况下使用单例范围。 |
+| `REQUEST`   | 在请求处理完成后，将为每个传入请求和垃圾收集专门创建提供者的新实例 |
+| `TRANSIENT` | 临时提供者不能在提供者之间共享。每当其他提供者向 `Nest` 容器请求特定的临时提供者时，该容器将创建一个新的专用实例 |
+
+举个例子：
+
+通过指定[瞬态作用域](https://docs.nestjs.com/fundamentals/injection-scopes)来保证在每个模块内都有独一无二的 `MyLogger` 的实例
+
+```tsx
+import { Injectable, Scope, ConsoleLogger } from '@nestjs/common';
+
+@Injectable({ scope: Scope.TRANSIENT })
+export class MyLogger extends ConsoleLogger {
+  customLog() {
+    this.log('Please feed the cat!');
+  }
+}
+```
+
+
+
+
+
 # 补充
 
 
