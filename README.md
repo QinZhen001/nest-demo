@@ -26,13 +26,25 @@
 
 
 
-# 文档
-
-https://docs.nestjs.cn/10/introduction
-
-
-
 # 补充
+
+
+
+## APP_INTERCEPTOR
+
+>  来自 @nestjs/core
+
+`nest APP_INTERCEPTOR` 是一个特殊的拦截器，用于在 Nest 应用程序的控制器和处理程序之间的请求处理过程中进行中间操作。它允许开发人员在请求到达控制器之前或离开控制器之后，对请求和响应进行全局的修改或处理。
+
+
+
+## APP_FILTER
+
+> 来自 @nestjs/core
+
+Nest `APP_FILTER` 是一个中间件过滤器，用于在Nest应用程序中过滤请求和响应。它可以用于对请求进行预处理，修改请求参数或头部，进行身份验证，以及对响应进行后处理等操作。
+
+
 
 
 
@@ -44,3 +56,38 @@ nestjs/common和nestjs/core是Nest.js框架中的两个主要模块。
 * nestjs/core模块包含了一些核心的类和接口，例如应用程序类、模块类、控制器类和提供程序类等。它提供了构建Nest.js应用程序所需的基本功能。
 
 简而言之，nestjs/common模块提供了一些通用的功能和工具，而nestjs/core模块提供了构建Nest.js应用程序所需的核心类和接口。它们一起协作，使得开发者可以更轻松地构建和组织Nest.js应用程序。
+
+
+
+
+
+## 高速缓存
+
+[https://docs.nestjs.cn/8/techniques?id=%e9%ab%98%e9%80%9f%e7%bc%93%e5%ad%98%ef%bc%88caching%ef%bc%89](https://docs.nestjs.cn/8/techniques?id=%e9%ab%98%e9%80%9f%e7%bc%93%e5%ad%98%ef%bc%88caching%ef%bc%89)
+
+- If using `cache-manager` v4, provide ttl in seconds
+- If using `cache-manager` v5, provide ttl in milliseconds
+
+
+
+
+
+
+
+## 深入了解Nest的模块Module
+
+[https://juejin.cn/post/6925605351475806216](https://juejin.cn/post/6925605351475806216)
+
+- imports ：导入其他模块中导出的Providers，以实现共享
+- providers ：模块中所有用到的功能类，模块内共享实用；
+- controllers：控制器
+- exports：导出其他模块需要共享的Providers
+
+通过以上四种类型的设定，Nest的IoC才能够准确识别需要组装（注入和被注入）各种依赖关系，同时实现一定程度的共享。
+
+
+
+# 文档
+
+https://docs.nestjs.cn/10/introduction
+

@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, VersioningType } from '@nestjs/common';
+import { CustomExceptionFilter } from './common/filter/index';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -10,6 +11,13 @@ async function bootstrap() {
   // app.useGlobalInterceptors();
   // 使用全局管道
   // app.useGlobalPipes(new ValidationPipe());  // 校验器
+  // 异常过滤器
+  app.useGlobalFilters(new CustomExceptionFilter());
+  // URI 版本管理
+  app.enableVersioning({
+    type: VersioningType.URI,
+  });
+
   await app.listen(3000);
 }
 bootstrap();
