@@ -116,6 +116,43 @@ nestjs/common和nestjs/core是Nest.js框架中的两个主要模块。
 
 
 
+## Nest debug in vscode 
+
+[https://dev.to/gentax/nestjs-right-settings-for-debugging-kl0](https://dev.to/gentax/nestjs-right-settings-for-debugging-kl0)
+
+Find out ***Auto Attach Filter\*** section and select ***Always\*** from the dropdown.
+
+create a `launch.json`
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Debug Nest Framework",
+        "runtimeExecutable": "npm",
+        "runtimeArgs": [
+          "run",
+          "start:debug",
+          "--",
+          "--inspect-brk"
+        ],
+        "autoAttachChildProcesses": true,
+        "restart": true,
+        "sourceMaps": true,
+        "stopOnEntry": false,
+        "console": "integratedTerminal",
+      }
+    ]
+}
+```
+
+
+
+
+
 # 文档
 
 https://docs.nestjs.cn/10/introduction

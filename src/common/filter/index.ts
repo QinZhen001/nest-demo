@@ -10,7 +10,7 @@ export class CustomExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse();
 
     // 设置响应状态码和错误消息
-    const status = exception.getStatus();
+    const status = exception?.getStatus();
     const message = exception.message || 'Internal server error';
 
     // 发送响应

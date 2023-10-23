@@ -9,6 +9,7 @@ import { CustomTtlModule } from './custom-ttl/custom-ttl.module';
 import { QueuesModule } from './queues/queues.module';
 import { OrdersModule } from './orders/orders.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
+import { FilesModule } from './files/files.module';
 // ----- controllers -----
 import { Cats2Controller } from './cats/cats2.controller';
 // ----- services -----
@@ -50,6 +51,7 @@ const mockDogsService = {};
     DogsModule,
     QueuesModule,
     OrdersModule,
+    FilesModule,
   ],
   // 直接使用 controller 的方式
   controllers: [Cats2Controller],
