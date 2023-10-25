@@ -26,7 +26,10 @@ import {
 } from '../common/pipe/validation.pipe';
 import { RolesGuard } from '../common/guard/roles.guard';
 import { LoggingInterceptor } from '../common/interceptor/logging.interceptor';
+import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiBearerAuth()
+@ApiTags('cats')
 @Controller('cats')
 @UseGuards(RolesGuard)
 @UseInterceptors(LoggingInterceptor)

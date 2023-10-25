@@ -90,6 +90,24 @@ nestjs/common和nestjs/core是Nest.js框架中的两个主要模块。
 
 
 
+## ExecutionContext
+
+> 来自 nestjs/common
+
+ExecutionContext是一个包含有关当前请求和响应的上下文信息的对象。它提供了访问请求，响应和其他相关信息的方法和属性。
+
+ExecutionContext的使用有以下几个用途：
+
+1. 访问请求和响应数据：可以使用ExecutionContext的getRequest()和getResponse()方法来访问当前请求和响应对象。这对于在处理请求时获取请求参数、headers和响应数据等非常有用。
+2. 控制器方法参数装饰器：可以使用ExecutionContext来装饰控制器方法的参数，以获取请求和响应的数据。例如，使用@Req()装饰器可以将请求对象作为参数传递给控制器方法。
+3. 请求和响应拦截器：可以在请求和响应拦截器中使用ExecutionContext来访问请求和响应数据，并对它们进行处理或修改。例如，在请求拦截器中可以对请求中的参数进行验证或修改，而在响应拦截器中可以修改响应数据或添加自定义的headers。
+
+总的来说，ExecutionContext提供了访问请求和响应数据的方法，使得在处理请求时可以轻松地获取、操作和修改这些数据。
+
+
+
+
+
 ## 高速缓存
 
 [https://docs.nestjs.cn/8/techniques?id=%e9%ab%98%e9%80%9f%e7%bc%93%e5%ad%98%ef%bc%88caching%ef%bc%89](https://docs.nestjs.cn/8/techniques?id=%e9%ab%98%e9%80%9f%e7%bc%93%e5%ad%98%ef%bc%88caching%ef%bc%89)

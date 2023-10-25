@@ -10,6 +10,8 @@ import { QueuesModule } from './queues/queues.module';
 import { OrdersModule } from './orders/orders.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { FilesModule } from './files/files.module';
+import { MyHttpModule } from './http/http.module';
+import { AuthModule } from './auth/auth.module';
 // ----- controllers -----
 import { Cats2Controller } from './cats/cats2.controller';
 // ----- services -----
@@ -52,6 +54,8 @@ const mockDogsService = {};
     QueuesModule,
     OrdersModule,
     FilesModule,
+    MyHttpModule,
+    AuthModule,
   ],
   // 直接使用 controller 的方式
   controllers: [Cats2Controller],
