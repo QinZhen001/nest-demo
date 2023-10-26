@@ -25,13 +25,16 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/cache-manager": "^2.1.0",
     "@nestjs/typeorm": "^10.0.0",
-    "@nestjs/swagger": "^5.1.0",
+    "@nestjs/swagger": "^7.1.14",
     "@nestjs/config": "^3.1.1",
     "@nestjs/schedule": "^3.0.4",
     "@nestjs/bull": "^10.0.1",
     "@nestjs/event-emitter": "^2.0.2",
     "@nestjs/axios": "^3.0.0",
     "@nestjs/jwt":"^10.1.1",
+    "@nestjs/platform-socket.io": "10.2.6",
+    "@nestjs/websockets":"^10.2.7",
+    "@nestjs/serve-static":"^4.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
     "joi": "^17.4.2",
@@ -45,7 +48,9 @@
     "express-session": "^1.17.3",
     "helmet":"^7.0.0",
     "csurf":"^1.11.0",
-    "swagger-ui-express":"^5.0.0"
+    "swagger-ui-express":"^5.0.0",
+    "socket.io": "4.7.0",
+    "@socket.io/redis-adapter": "8.2.1"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.62",

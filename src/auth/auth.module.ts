@@ -24,6 +24,7 @@ import { AuthController } from './auth.controller';
   providers: [
     AuthService,
     {
+      // 变成全局的守卫了
       provide: APP_GUARD,
       useClass: AuthGuard,
     },

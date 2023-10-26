@@ -11,7 +11,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // 全局前缀
-  app.setGlobalPrefix('api');
+  // app.setGlobalPrefix('api');
 
   // 使用全局守卫
   // app.useGlobalGuards();
@@ -49,16 +49,16 @@ async function bootstrap() {
   // Nest 使用同一个 MyLogger 实例
   // app.useLogger(app.get(MyLogger));
 
-  // 文档
+  // 文档;
   const options = new DocumentBuilder()
     .setTitle('NestJS Realworld Example App')
     .setDescription('The Realworld API description')
     .setVersion('1.0')
-    .addTag('cats')
-    .addBearerAuth()
+    // .addTag('cats')
+    // .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('doc', app, document);
 
   await app.listen(3000);
 }

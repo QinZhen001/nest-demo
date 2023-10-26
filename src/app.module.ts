@@ -12,6 +12,9 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
 import { FilesModule } from './files/files.module';
 import { MyHttpModule } from './http/http.module';
 import { AuthModule } from './auth/auth.module';
+import { EventsModule } from './events/events.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { MoneyModule } from './money/money.module';
 // ----- controllers -----
 import { Cats2Controller } from './cats/cats2.controller';
 // ----- services -----
@@ -23,6 +26,7 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { VersioningType, VersioningOptions } from '@nestjs/common';
 import { APP_INTERCEPTOR, APP_FILTER } from '@nestjs/core';
 import { CacheConfig } from './common/config/cache.config';
+import { join } from 'path';
 
 const mockDogsService = {};
 
@@ -37,6 +41,9 @@ const mockDogsService = {};
     ScheduleModule.forRoot(),
     ConfigModule.forRoot({
       isGlobal: true,
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'client'),
     }),
     // TypeOrmModule.forRoot({
     //   type: 'mysql',
@@ -55,10 +62,12 @@ const mockDogsService = {};
     OrdersModule,
     FilesModule,
     MyHttpModule,
-    AuthModule,
+    // AuthModule,
+    EventsModule,
+    MoneyModule,
   ],
   // 直接使用 controller 的方式
-  controllers: [Cats2Controller],
+  // controllers: [Cats2Controller],
   providers: [
     // {
     //   provide: APP_INTERCEPTOR,
@@ -75,8 +84,9 @@ const mockDogsService = {};
     // },
   ],
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggerMiddleware).forRoutes('cats');
-  }
-}
+export class AppModule {}
+// export class AppModule implements NestModule {
+//   configure(consumer: MiddlewareConsumer) {
+//     consumer.apply(LoggerMiddleware).forRoutes('cats');
+//   }
+// }

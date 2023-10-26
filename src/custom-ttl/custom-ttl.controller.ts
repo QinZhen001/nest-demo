@@ -1,6 +1,8 @@
 import { Controller, Get, UseInterceptors } from '@nestjs/common';
 import { CacheInterceptor, CacheTTL } from '@nestjs/cache-manager';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('ttl')
 @Controller('ttl')
 @CacheTTL(600)
 export class CustomTtlController {

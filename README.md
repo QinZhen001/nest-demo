@@ -55,13 +55,23 @@ export class MyLogger extends ConsoleLogger {
 
 
 
-# 补充
+# nestjs/core
+
+
+
+## APP_GUARD
+
+守卫是NestJS中的一个重要概念，用于保护路由免受未经身份验证或未经授权的访问。
+
+APP_GUARD装饰器用于将自定义的守卫应用于指定的路由或请求。
+
+**APP_GUARD 是全局守卫装饰器，它会应用于所有的路由和控制器**
+
+
 
 
 
 ## APP_INTERCEPTOR
-
->  来自 @nestjs/core
 
 `nest APP_INTERCEPTOR` 是一个特殊的拦截器，用于在 Nest 应用程序的控制器和处理程序之间的请求处理过程中进行中间操作。它允许开发人员在请求到达控制器之前或离开控制器之后，对请求和响应进行全局的修改或处理。
 
@@ -69,9 +79,27 @@ export class MyLogger extends ConsoleLogger {
 
 ## APP_FILTER
 
-> 来自 @nestjs/core
-
 Nest `APP_FILTER` 是一个中间件过滤器，用于在Nest应用程序中过滤请求和响应。它可以用于对请求进行预处理，修改请求参数或头部，进行身份验证，以及对响应进行后处理等操作。
+
+
+
+
+
+
+
+# CLI
+
+
+
+## 生成新资源
+
+[https://docs.nestjs.cn/8/recipes?id=%e7%94%9f%e6%88%90%e6%96%b0%e8%b5%84%e6%ba%90](https://docs.nestjs.cn/8/recipes?id=%e7%94%9f%e6%88%90%e6%96%b0%e8%b5%84%e6%ba%90)
+
+`nest g resource`命令不仅仅生成所有Nestjs构件模块(模块，服务，控制器类)也生成实体类，`DTO`类和测试(.spec)文件。
+
+
+
+# 补充
 
 
 

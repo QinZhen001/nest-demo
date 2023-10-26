@@ -13,7 +13,9 @@ import { AxiosResponse } from 'axios';
 import { Observable, interval, map } from 'rxjs';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('http')
 @Controller('http')
 export class HttpController {
   constructor(private myHttpService: MyHttpService) {}

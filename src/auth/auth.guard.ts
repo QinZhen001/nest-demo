@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate {
       context.getHandler(),
       context.getClass(),
     ]);
-
+    console.log(22222);
     if (isPublic) {
       return true;
     }

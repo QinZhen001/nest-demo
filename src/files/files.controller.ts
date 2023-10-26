@@ -13,7 +13,9 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { SampleDto } from './dto/sample.dto';
 import { createReadStream } from 'fs';
 import { join } from 'path';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('files')
 @Controller('files')
 export class FilesController {
   @UseInterceptors(FileInterceptor('file'))
